@@ -32,11 +32,17 @@
 	<dependencies>
 
 		<dependency>
-			<groupId>com.azure.spring</groupId>
-			<artifactId>spring-cloud-azure-starter-data-cosmos</artifactId>
-			<version>4.6.0</version> <!-- Replace with the latest version available -->
-
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-mongodb</artifactId>
 		</dependency>
+
+		<dependency>
+			<groupId>com.azure.spring</groupId>
+			<artifactId>azure-spring-data-cosmos</artifactId>
+			<version>4.4.0</version> <!-- Asegúrate de usar la última versión -->
+		</dependency>
+
+
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

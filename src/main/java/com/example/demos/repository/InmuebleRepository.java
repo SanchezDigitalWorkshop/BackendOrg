@@ -5,6 +5,6 @@ import com.example.demos.model.Inmueble;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface InmuebleRepository extends CosmosRepository<Inmueble, String> {
+public interface InmuebleRepository extends MongoRepository<Inmueble, String> {
     // Puedes agregar métodos personalizados si es necesario
 }

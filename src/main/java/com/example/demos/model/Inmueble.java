@@ -1,13 +1,13 @@
 package com.example.demos.model;
 
-import com.azure.spring.data.cosmos.core.mapping.Container;
+import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.annotation.Id;
 import lombok.Data;
 import java.time.LocalDate;
 import java.util.List;
 
 @Data
-@Container(containerName = "Inmuebles") // Nombre del contenedor en Cosmos DB
+@Document(collection = "inmuebles")
 public class Inmueble {
     @Id
     private String id;
