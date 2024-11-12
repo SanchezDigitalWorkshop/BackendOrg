@@ -1,7 +1,7 @@
 package com.example.demos.repository;
 
-import com.azure.spring.data.cosmos.repository.CosmosRepository;
 import com.example.demos.model.Inmueble;
+import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
