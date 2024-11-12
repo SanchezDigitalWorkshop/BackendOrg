@@ -23,4 +23,6 @@ public class Inmueble {
     private String estado;
     private String clienteId;
     private List<String> imagenes;
+    // Clave de partición
+    private String partition;
 }
