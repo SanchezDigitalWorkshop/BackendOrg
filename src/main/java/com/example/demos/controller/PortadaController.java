@@ -1,7 +1,9 @@
 package com.example.demos.controller;
 
 import com.example.demos.model.Inmueble;
+import com.example.demos.model.Portada;
 import com.example.demos.repository.InmuebleRepository;
+import com.example.demos.repository.PortadaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,17 +15,17 @@ import java.util.List;
 public class PortadaController {
 
     @Autowired
-    private InmuebleRepository inmuebleRepository;
+    private PortadaRepository portadaRepository;
 
     // Método GET para obtener todos los inmuebles
     @GetMapping
-    public List<Inmueble> getAllInmuebles() {
-        return (List<Inmueble>) inmuebleRepository.findAll();
+    public List<Portada> getAllInmuebles() {
+        return (List<Portada>) portadaRepository.findAll();
     }
 
     // Método POST para agregar un nuevo inmueble
     @PostMapping
-    public Inmueble createInmueble(@RequestBody Inmueble inmueble) {
-        return inmuebleRepository.save(inmueble);
+    public Portada createInmueble(@RequestBody Portada portada) {
+        return portadaRepository.save(portada);
     }
 }
