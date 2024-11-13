@@ -1,7 +1,10 @@
 C:\Users\Bross Sanchez\Downloads\demos\demos\BackendOrg\src\main\java\com\example\demos\controller\ClienteController.java
 C:\Users\Bross Sanchez\Downloads\demos\demos\BackendOrg\src\main\java\com\example\demos\controller\InmuebleController.java
+C:\Users\Bross Sanchez\Downloads\demos\demos\BackendOrg\src\main\java\com\example\demos\controller\PortadaController.java
 C:\Users\Bross Sanchez\Downloads\demos\demos\BackendOrg\src\main\java\com\example\demos\DemosApplication.java
 C:\Users\Bross Sanchez\Downloads\demos\demos\BackendOrg\src\main\java\com\example\demos\model\Cliente.java
 C:\Users\Bross Sanchez\Downloads\demos\demos\BackendOrg\src\main\java\com\example\demos\model\Direccion.java
 C:\Users\Bross Sanchez\Downloads\demos\demos\BackendOrg\src\main\java\com\example\demos\model\Inmueble.java
+C:\Users\Bross Sanchez\Downloads\demos\demos\BackendOrg\src\main\java\com\example\demos\model\Portada.java
 C:\Users\Bross Sanchez\Downloads\demos\demos\BackendOrg\src\main\java\com\example\demos\repository\InmuebleRepository.java
+C:\Users\Bross Sanchez\Downloads\demos\demos\BackendOrg\src\main\java\com\example\demos\repository\PortadaRepository.java

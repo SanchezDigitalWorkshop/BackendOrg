@@ -1,7 +1,10 @@
+com\example\demos\model\Portada.class
 com\example\demos\model\Cliente.class
 com\example\demos\model\Direccion.class
+com\example\demos\repository\PortadaRepository.class
 com\example\demos\model\Inmueble.class
 com\example\demos\DemosApplication.class
 com\example\demos\controller\ClienteController.class
+com\example\demos\controller\PortadaController.class
 com\example\demos\controller\InmuebleController.class
 com\example\demos\repository\InmuebleRepository.class

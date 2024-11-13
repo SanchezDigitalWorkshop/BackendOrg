@@ -1,8 +1,6 @@
 package com.example.demos.controller;
 
-import com.example.demos.model.Inmueble;
 import com.example.demos.model.Portada;
-import com.example.demos.repository.InmuebleRepository;
 import com.example.demos.repository.PortadaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
