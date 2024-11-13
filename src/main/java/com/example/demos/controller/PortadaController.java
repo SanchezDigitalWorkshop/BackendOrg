@@ -1,20 +1,16 @@
 package com.example.demos.controller;
 
+import com.example.demos.model.Inmueble;
 import com.example.demos.repository.InmuebleRepository;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-import com.example.demos.model.*;
-
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("api/portada")
 @CrossOrigin(origins = "*")
-public class InmuebleController {
+public class PortadaController {
 
     @Autowired
     private InmuebleRepository inmuebleRepository;
