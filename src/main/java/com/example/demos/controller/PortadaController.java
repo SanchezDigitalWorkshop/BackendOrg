@@ -15,15 +15,15 @@ public class PortadaController {
     @Autowired
     private PortadaRepository portadaRepository;
 
-    // Método GET para obtener todos los inmuebles
+    // Método GET para obtener todos los getAllIPortada
     @GetMapping
-    public List<Portada> getAllInmuebles() {
+    public List<Portada> getAllIPortada() {
         return (List<Portada>) portadaRepository.findAll();
     }
 
-    // Método POST para agregar un nuevo inmueble
+    // Método POST para agregar un nuevo createPortada
     @PostMapping
-    public Portada createInmueble(@RequestBody Portada portada) {
+    public Portada createPortada(@RequestBody Portada portada) {
         return portadaRepository.save(portada);
     }
 }

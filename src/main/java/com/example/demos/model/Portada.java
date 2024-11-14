@@ -11,5 +11,7 @@ public class Portada {
     @Id
     private String id;
     private String imagenes;
+
     private String partition;
+    private String partitionKey;
 }
