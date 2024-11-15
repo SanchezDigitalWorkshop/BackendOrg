@@ -27,5 +27,6 @@ public class Inmueble {
     // Clave de partición
     private String partition;
     private LocalDateTime fechaCreacion = LocalDateTime.now();
-    private String prioridad;
+    private int prioridad;
+    private boolean activo = true;
 }
