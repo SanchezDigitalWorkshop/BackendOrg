@@ -4,6 +4,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.annotation.Id;
 import lombok.Data;
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 @Data
@@ -25,4 +26,6 @@ public class Inmueble {
     private List<String> imagenes;
     // Clave de partición
     private String partition;
+    private Date fechaCreacion = new Date();
+    private String prioridad;
 }
