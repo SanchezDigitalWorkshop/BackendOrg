@@ -28,5 +28,6 @@ public class Inmueble {
     private String partition;
     private LocalDateTime fechaCreacion = LocalDateTime.now();
     private int prioridad;
-    private boolean activo = true;
+    private boolean activo;
+    private boolean descatado;
 }
