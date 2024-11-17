@@ -55,6 +55,12 @@
 			<version>1.18.30</version> <!-- Usa la versión más reciente -->
 			<scope>provided</scope>
 		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-mail</artifactId>
+		</dependency>
+
 	</dependencies>
 
 	<build>
