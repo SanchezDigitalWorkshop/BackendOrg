@@ -61,6 +61,12 @@
 			<artifactId>spring-boot-starter-mail</artifactId>
 		</dependency>
 
+		<dependency>
+			<groupId>com.newrelic.agent.java</groupId>
+			<artifactId>newrelic-agent</artifactId>
+			<version>7.11.0</version> <!-- Asegúrate de usar la última versión -->
+			<scope>runtime</scope>
+		</dependency>
 	</dependencies>
 
 	<build>
