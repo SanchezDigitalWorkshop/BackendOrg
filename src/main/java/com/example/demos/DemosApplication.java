@@ -16,7 +16,7 @@ public class DemosApplication {
 		SpringApplication.run(DemosApplication.class, args);
 		//test
 
-		JavaMailSenderImpl mailSender = new JavaMailSenderImpl();
+		/*JavaMailSenderImpl mailSender = new JavaMailSenderImpl();
 		mailSender.setHost("smtp.gmail.com");
 		mailSender.setPort(587);
 		mailSender.setUsername("sanchezdigitalworkshop@gmail.com");
@@ -38,7 +38,7 @@ public class DemosApplication {
 			System.out.println("Correo enviado con éxito.");
 		} catch (MessagingException e) {
 			e.printStackTrace();
-		}
+		}*/
 	}
 
 }
