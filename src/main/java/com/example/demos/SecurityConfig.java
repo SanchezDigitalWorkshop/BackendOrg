@@ -20,6 +20,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/api/auth/**").permitAll() // Rutas públicas
                         .requestMatchers("/api/portada").permitAll() // Rutas públicas
+                        .requestMatchers("/api/inmuebles").permitAll() // Rutas públicas
                         .requestMatchers("/api/users/me").authenticated() // Protegido para usuarios autenticados
                         .anyRequest().authenticated()
                 )
