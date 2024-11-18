@@ -54,11 +54,22 @@ public class UserService {
         return ResponseEntity.ok(new AuthResponse(token));
     }
 
-    public ResponseEntity<?> getUserProfile(HttpServletRequest request) {
+  /*  public ResponseEntity<?> getUserProfile(HttpServletRequest request) {
         Claims claims = (Claims) request.getAttribute("claims");
         String userId = claims.get("userId", String.class);
 
         Optional<User> userOpt = userRepository.findById(userId);
+        if (userOpt.isEmpty()) {
+            return ResponseEntity.status(404).body("User not found.");
+        }
+
+        return ResponseEntity.ok(userOpt.get());
+    }*/
+
+    public ResponseEntity<?> getUserProfile() {
+
+
+        Optional<User> userOpt = userRepository.findByEmail("70192337");
         if (userOpt.isEmpty()) {
             return ResponseEntity.status(404).body("User not found.");
         }
