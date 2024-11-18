@@ -69,7 +69,7 @@ public class UserService {
     public ResponseEntity<?> getUserProfile() {
 
 
-        Optional<User> userOpt = userRepository.findByEmail("70192337");
+        Optional<User> userOpt = userRepository.findByDni("70192337");
         if (userOpt.isEmpty()) {
             return ResponseEntity.status(404).body("User not found.");
         }
