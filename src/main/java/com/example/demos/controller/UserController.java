@@ -22,7 +22,7 @@ public class UserController {
 
 
     @GetMapping("/me")
-    public ResponseEntity<?> getProfile() {
+    public ResponseEntity<?> getProfile(@RequestParam String dni) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         System.out.println("Authentication: " + authentication);
         if (authentication == null || !authentication.isAuthenticated()) {
@@ -30,7 +30,7 @@ public class UserController {
         }
         String email = authentication.getName();
         //return ResponseEntity.ok(Map.of("email", email));
-        return userService.getUserProfile();
+        return userService.getUserProfile(dni);
     }
 
     @PutMapping("/me")
