@@ -12,19 +12,17 @@ import java.util.List;
 public class Inmueble {
     @Id
     private String id;
-    private String tipoPropiedad;
-    private String categoria;
-    private int metrosCuadrados;
-    private double precio;
-    private Direccion direccion;
-    private int habitaciones;
-    private int banos;
-    private String descripcion;
+    private String tipoOperacion; // Venta o Alquiler
+    private String tipoPropiedad; // Casa, Departamento, etc.
+    private Ubicacion ubicacion;
+    private Caracteristicas caracteristicas;
+    //   private Precio precio;
+    //    private Descripcion descripcion;
+    private Multimedia multimedia;
+    private AspectosAdicionales aspectosAdicionales;
+    private String estado; // Disponible o no
     private LocalDate fechaDisponibilidad;
-    private String estado;
     private String clienteId;
-    private List<String> imagenes;
-    // Clave de partición
     private String partition;
     private LocalDateTime fechaCreacion = LocalDateTime.now();
     private int prioridad;
