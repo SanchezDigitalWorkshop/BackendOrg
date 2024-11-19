@@ -21,6 +21,8 @@ public class SecurityConfig {
                         .requestMatchers("/api/auth/**").permitAll() // Rutas públicas
                         .requestMatchers("/api/portada").permitAll() // Rutas públicas
                         .requestMatchers("/api/inmuebles").permitAll() // Rutas públicas
+                        .requestMatchers("/api/verify-email").permitAll() // Rutas públicas
+                        .requestMatchers("/api//send-verification-email").permitAll() // Rutas públicas
                         .requestMatchers("/api/users/me").authenticated() // Protegido para usuarios autenticados
                         .anyRequest().authenticated()
                 )
