@@ -16,8 +16,8 @@ public class Inmueble {
     private String tipoPropiedad; // Casa, Departamento, etc.
     private Ubicacion ubicacion;
     private Caracteristicas caracteristicas;
-    //   private Precio precio;
-    //    private Descripcion descripcion;
+    private Precio precio;
+    private Descripcion descripcion;
     private Multimedia multimedia;
     private AspectosAdicionales aspectosAdicionales;
     private String estado; // Disponible o no
