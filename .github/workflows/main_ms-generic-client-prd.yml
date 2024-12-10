@@ -1,3 +1,6 @@
+# Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
+# More GitHub Actions for Azure: https://github.com/Azure/actions
+
 name: Build and deploy JAR app to Azure Web App - ms-generic-client-prd
 
 on:
@@ -28,28 +31,15 @@ jobs:
           name: java-app
           path: '${{ github.workspace }}/target/*.jar'
 
-  cleanup-artifacts:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Install GitHub CLI
-        run: sudo apt-get install gh -y
-
-      - name: Clean up old artifacts
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          gh auth login --with-token <<< $GITHUB_TOKEN
-          gh run list --limit 10 | grep "artifact" | awk '{print $1}' | xargs -I % gh run delete %
-
   deploy:
     runs-on: ubuntu-latest
-    needs: [build, cleanup-artifacts]
+    needs: build
     environment:
       name: 'Production'
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
     permissions:
       id-token: write #This is required for requesting the JWT
-
+  
     steps:
       - name: Download artifact from build job
         uses: actions/download-artifact@v4
