@@ -14,7 +14,7 @@ public class Inmueble {
     private String id;
     private String tipoOperacion; // Venta o Alquiler
     private String tipoPropiedad; // Casa, Departamento, etc.
-    private String tipoProyecto; // En plano, En construcción, Entreg 
+    private String tipoProyecto; // En plano, En construcción,  
     private Ubicacion ubicacion;
     private Caracteristicas caracteristicas;
     private Precio precio;
