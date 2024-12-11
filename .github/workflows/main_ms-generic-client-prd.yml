@@ -1,6 +1,3 @@
-# Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
-# More GitHub Actions for Azure: https://github.com/Azure/actions
-
 name: Build and deploy JAR app to Azure Web App - ms-generic-client-prd
 
 on:
@@ -25,20 +22,20 @@ jobs:
       - name: Build with Maven
         run: mvn clean install
 
-      - name: Delete old artifacts
+      - name: Delete old artifacts to free space
         run: |
           gh api \
-          -X DELETE \
+          -X GET \
           /repos/${{ github.repository }}/actions/artifacts \
-          --jq '.artifacts[].id' | while read -r id; do
-            gh api -X DELETE /repos/${{ github.repository }}/actions/artifacts/$id
-          done
+          --jq '.artifacts | sort_by(.created_at) | .[0:-5] | .[].id' | \
+          xargs -I {} gh api -X DELETE /repos/${{ github.repository }}/actions/artifacts/{}
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
         with:
           name: java-app
           path: '${{ github.workspace }}/target/*.jar'
+          retention-days: 7
 
   deploy:
     runs-on: ubuntu-latest
@@ -47,7 +44,7 @@ jobs:
       name: 'Production'
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
     permissions:
-      id-token: write # This is required for requesting the JWT
+      id-token: write
 
     steps:
       - name: Download artifact from build job
