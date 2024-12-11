@@ -22,12 +22,14 @@ jobs:
       - name: Build with Maven
         run: mvn clean install
 
-      - name: Delete old artifacts to free space
+      - name: Delete all old artifacts
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           gh api \
           -X GET \
           /repos/${{ github.repository }}/actions/artifacts \
-          --jq '.artifacts | sort_by(.created_at) | .[0:-5] | .[].id' | \
+          --jq '.artifacts | .[].id' | \
           xargs -I {} gh api -X DELETE /repos/${{ github.repository }}/actions/artifacts/{}
 
       - name: Upload artifact for deployment job
@@ -35,7 +37,7 @@ jobs:
         with:
           name: java-app
           path: '${{ github.workspace }}/target/*.jar'
-          retention-days: 7
+          retention-days: 1
 
   deploy:
     runs-on: ubuntu-latest
