@@ -9,6 +9,6 @@ public class Ubicacion {
     private String departamento;
     private String provincia;
     private String formaUbicacion; // Exacta o Aproximada
-    private String logitud;
+    private String longitud;
     private String latitud;
 }
