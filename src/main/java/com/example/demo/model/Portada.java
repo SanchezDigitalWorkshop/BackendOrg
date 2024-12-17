@@ -14,4 +14,9 @@ public class Portada {
 
     private String partition;
     private String partitionKey;
+
+    // Información adicional sobre ofertas o anuncios
+    private String mensajePromocional;
+    private String urlPromocional; // Enlace a una página de promoción o detalle
+
 }
