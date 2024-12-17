@@ -7,7 +7,6 @@ import org.springframework.security.config.annotation.authentication.configurati
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.SecurityFilterChain;
-import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 @Configuration
 public class SecurityConfig {
@@ -18,16 +17,9 @@ public class SecurityConfig {
                 .csrf(csrf -> csrf.disable())
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/api/auth/**").permitAll() // Rutas públicas
-                        .requestMatchers("/api/portada").permitAll() // Rutas públicas
-                        .requestMatchers("/api/inmuebles").permitAll() // Rutas públicas
-                        .requestMatchers("/api/verify-email").permitAll() // Rutas públicas
-                        .requestMatchers("/api/jobs").permitAll() // Rutas públicas
-                        .requestMatchers("/api//send-verification-email").permitAll() // Rutas públicas
-                        .requestMatchers("/api/users/me").authenticated() // Protegido para usuarios autenticados
-                        .anyRequest().authenticated()
+                        .anyRequest().permitAll() // Permite el acceso a TODAS las rutas
                 )
-                .addFilterBefore(new JwtAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class)
+                // .addFilterBefore(new JwtAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class) // Comentar temporalmente el filtro JWT
                 .build();
     }
 

@@ -28,4 +28,8 @@ public class Inmueble {
     private int prioridad;
     private boolean activo;
     private boolean descatado;
+    private Servicio servicios;
+    private Alrededores alrededores;
+    private CaracteristicasGenerales caracteristicasGenerales;
+
 }
