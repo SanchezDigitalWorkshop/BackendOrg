@@ -32,4 +32,24 @@ public class Inmueble {
     private Alrededores alrededores;
     private CaracteristicasGenerales caracteristicasGenerales;
 
+    /**
+     * Valida las características generales de un inmueble, asegurando que no sean nulas.
+     */
+    public void validateCaracteristicasGenerales() {
+        if (this.caracteristicasGenerales == null) {
+            this.caracteristicasGenerales = new CaracteristicasGenerales();
+        }
+
+        // Validar cada campo booleano, asegurando que nunca sean nulos.
+        this.caracteristicasGenerales.setChimenea(this.caracteristicasGenerales.isChimenea());
+        this.caracteristicasGenerales.setJardin(this.caracteristicasGenerales.isJardin());
+        this.caracteristicasGenerales.setPiscina(this.caracteristicasGenerales.isPiscina());
+        this.caracteristicasGenerales.setTerraza(this.caracteristicasGenerales.isTerraza());
+        this.caracteristicasGenerales.setSeguridad(this.caracteristicasGenerales.isSeguridad());
+        this.caracteristicasGenerales.setCercaColegios(this.caracteristicasGenerales.isCercaColegios());
+        this.caracteristicasGenerales.setCloset(this.caracteristicasGenerales.isCloset());
+        this.caracteristicasGenerales.setWalkInCloset(this.caracteristicasGenerales.isWalkInCloset());
+
+        // Validar otros campos específicos si fuera necesario...
+    }
 }
