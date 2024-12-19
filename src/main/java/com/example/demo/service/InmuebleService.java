@@ -1,11 +1,14 @@
 package com.example.demo.service;
 
 import com.example.demo.model.Inmueble;
+import com.example.demo.model.Notificacion;
 import com.example.demo.repository.InmuebleRepository;
+import com.example.demo.repository.NotificacionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Optional;
 
@@ -15,11 +18,26 @@ public class InmuebleService {
     @Autowired
     private InmuebleRepository inmuebleRepository;
 
-    public Inmueble guardarInmueble(Inmueble inmueble) {
-        inmueble.validateCaracteristicasGenerales();
-        return inmuebleRepository.save(inmueble);
-    }
+    @Autowired
+    private NotificacionRepository notificacionRepository;
 
+    public Inmueble guardarInmueble(Inmueble inmueble) {
+        Inmueble guardado = inmuebleRepository.save(inmueble);
+
+        // Actualizar el número de notificaciones
+        Notificacion notificacion = notificacionRepository.findById("notificacionId")
+                .orElseGet(() -> {
+                    Notificacion nueva = new Notificacion();
+                    nueva.setId("notificacionId");
+                    nueva.setNumeroNotificaciones(0);
+                    return nueva;
+                });
+
+        notificacion.setNumeroNotificaciones(notificacion.getNumeroNotificaciones() + 1);
+        notificacionRepository.save(notificacion);
+
+        return guardado;
+    }
     public List<Inmueble> listarTodos() {
         return inmuebleRepository.findAll();
     }
@@ -40,7 +58,10 @@ public class InmuebleService {
 
     public long countInmueblesUltimaSemana() {
         LocalDateTime oneWeekAgo = LocalDateTime.now().minusDays(7);
-        return inmuebleRepository.countByFechaCreacionAfter(oneWeekAgo);
+        LocalDateTime fechaInicio = LocalDateTime.now().minusDays(7);
+        String fechaISO = fechaInicio.format(DateTimeFormatter.ISO_LOCAL_DATE_TIME);
+
+        return inmuebleRepository.countByFechaCreacionAfter(fechaISO);
     }
     public List<Inmueble> guardarListaInmuebles(List<Inmueble> inmuebles) {
         inmuebles.forEach(Inmueble::validateCaracteristicasGenerales); // Validación de cada inmueble

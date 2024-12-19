@@ -25,7 +25,6 @@ public class Inmueble {
     private LocalDate fechaDisponibilidad;
     private String clienteId;
     private String partition;
-    @CreatedDate
     private LocalDateTime fechaCreacion = LocalDateTime.now();
     private int prioridad;
     private boolean activo;

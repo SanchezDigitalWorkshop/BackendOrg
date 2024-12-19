@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 @Repository
 public interface InmuebleRepository extends MongoRepository<Inmueble, String> {
     // Puedes agregar métodos personalizados si es necesario
-    @Query("SELECT COUNT(i) FROM Inmueble i WHERE i.fechaCreacion >= :startDate")
-    long countByFechaCreacionAfter(@Param("startDate") LocalDateTime startDate);
+    @Query("{ 'fechaCreacion' : { $gte: ?0 } }")
+    Long countByFechaCreacionAfter(String fechaCreacion);
 
 }
