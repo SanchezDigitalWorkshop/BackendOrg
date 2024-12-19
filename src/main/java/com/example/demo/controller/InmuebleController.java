@@ -8,7 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("api/inmuebles")
@@ -52,5 +54,13 @@ public class InmuebleController {
             return ResponseEntity.noContent().build();
         }
         return ResponseEntity.notFound().build();
+    }
+
+    @GetMapping("/notificaciones")
+    public ResponseEntity<Map<String, Long>> getInmueblesUltimaSemana() {
+        long cantidad = inmuebleService.countInmueblesUltimaSemana();
+        Map<String, Long> response = new HashMap<>();
+        response.put("cantidadInmueblesUltimaSemana", cantidad);
+        return ResponseEntity.ok(response);
     }
 }
