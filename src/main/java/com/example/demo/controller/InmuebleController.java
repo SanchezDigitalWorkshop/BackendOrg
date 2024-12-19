@@ -70,4 +70,18 @@ public class InmuebleController {
         List<Inmueble> inmueblesGuardados = inmuebleService.guardarListaInmuebles(inmuebles);
         return ResponseEntity.ok(inmueblesGuardados);
     }
+
+    @ApiOperation(value = "Obtener los últimos N inmuebles", notes = "Devuelve una lista con los últimos inmuebles añadidos a la base de datos")
+    @GetMapping("/ultimos")
+    public ResponseEntity<List<Inmueble>> getUltimosInmuebles(@RequestParam(defaultValue = "7") int limite) {
+        List<Inmueble> ultimosInmuebles = inmuebleService.obtenerUltimosInmuebles(limite);
+        return ResponseEntity.ok(ultimosInmuebles);
+    }
+
+    @ApiOperation(value = "Obtener inmuebles con tiempo de publicación", notes = "Devuelve una lista de inmuebles junto con el tiempo transcurrido desde su publicación")
+    @GetMapping("/tiempo-publicacion")
+    public ResponseEntity<List<Map<String, Object>>> getInmueblesConTiempoPublicacion() {
+        List<Map<String, Object>> inmueblesConTiempo = inmuebleService.listarInmueblesConTiempoPublicacion();
+        return ResponseEntity.ok(inmueblesConTiempo);
+    }
 }
