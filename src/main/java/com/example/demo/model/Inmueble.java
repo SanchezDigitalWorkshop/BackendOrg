@@ -1,5 +1,6 @@
 package com.example.demo.model;
 
+import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.annotation.Id;
 import lombok.Data;
@@ -24,6 +25,7 @@ public class Inmueble {
     private LocalDate fechaDisponibilidad;
     private String clienteId;
     private String partition;
+    @CreatedDate
     private LocalDateTime fechaCreacion = LocalDateTime.now();
     private int prioridad;
     private boolean activo;

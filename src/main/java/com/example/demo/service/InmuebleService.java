@@ -40,6 +40,14 @@ public class InmuebleService {
 
     public long countInmueblesUltimaSemana() {
         LocalDateTime oneWeekAgo = LocalDateTime.now().minusDays(7);
-        return inmuebleRepository.countInmueblesByFechaCreacionAfter(oneWeekAgo);
+        return inmuebleRepository.countByFechaCreacionAfter(oneWeekAgo);
+    }
+    public List<Inmueble> guardarListaInmuebles(List<Inmueble> inmuebles) {
+        inmuebles.forEach(Inmueble::validateCaracteristicasGenerales); // Validación de cada inmueble
+        return inmuebleRepository.saveAll(inmuebles);
+    }
+
+    public void eliminarTodosLosInmuebles() {
+        inmuebleRepository.deleteAll();
     }
 }

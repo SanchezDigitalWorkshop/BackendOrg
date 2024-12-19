@@ -56,11 +56,26 @@ public class InmuebleController {
         return ResponseEntity.notFound().build();
     }
 
+    @ApiOperation(value = "Eliminar todos los inmuebles", notes = "Elimina todos los inmuebles de la base de datos")
+    @DeleteMapping("/todos")
+    public ResponseEntity<Void> deleteAllInmuebles() {
+        inmuebleService.eliminarTodosLosInmuebles();
+        return ResponseEntity.noContent().build();
+    }
+
     @GetMapping("/notificaciones")
     public ResponseEntity<Map<String, Long>> getInmueblesUltimaSemana() {
         long cantidad = inmuebleService.countInmueblesUltimaSemana();
         Map<String, Long> response = new HashMap<>();
         response.put("cantidadInmueblesUltimaSemana", cantidad);
         return ResponseEntity.ok(response);
+    }
+
+    @ApiOperation(value = "Crear múltiples inmuebles", notes = "Crea múltiples inmuebles en la base de datos")
+    @PostMapping("/lista")
+    public ResponseEntity<List<Inmueble>> createInmuebles(
+            @ApiParam(value = "Lista de inmuebles a crear", required = true) @RequestBody List<Inmueble> inmuebles) {
+        List<Inmueble> inmueblesGuardados = inmuebleService.guardarListaInmuebles(inmuebles);
+        return ResponseEntity.ok(inmueblesGuardados);
     }
 }
