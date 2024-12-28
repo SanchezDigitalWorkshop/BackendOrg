@@ -12,7 +12,7 @@ public class DemosApplication {
 
 		/*JavaMailSenderImpl mailSender = new JavaMailSenderImpl();
 		mailSender.setHost("smtp.gmail.com");
-		mailSender.setPort(587);
+		mailSender.setPort(587); asd
 		mailSender.setUsername("sanchezdigitalworkshop@gmail.com");
 		mailSender.setPassword("citoecfdiyhxcwoe");
 
